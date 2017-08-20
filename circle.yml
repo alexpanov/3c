@@ -20,7 +20,7 @@ test:
     - yarn test
 deployment:
   production:
-    branch: release
+    branch: master
     owner: alexpanov
     heroku:
-      appname: sensibill-weather
+      appname: coldest-canadian-cities

@@ -6,5 +6,5 @@ Meteor.publish('CityWeather.publications.all', () =>
     {openWeatherMapResponse: {$ne: null}},
     {limit: 10, sort: SORT_BY_LOWEST_TEMPERATURE}
   ), {
-  url: 'canada/cities/coldest/current'
+  url: 'cities/coldest/current'
 });
