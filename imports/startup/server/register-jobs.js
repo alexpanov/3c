@@ -1,5 +1,5 @@
 import {SyncedCron} from 'meteor/percolate:synced-cron';
-import {updateMostStaleCityWeather} from './weather';
+import {updateMostStaleCityWeather} from '/server/weather';
 
 SyncedCron.add({
   name: 'Update the oldest weather point',
