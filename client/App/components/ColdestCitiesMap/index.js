@@ -1,36 +1,9 @@
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {GoogleMap, Marker, withGoogleMap} from 'react-google-maps';
-import {Button, Card, Container} from 'semantic-ui-react';
-
-class CityMarker extends React.Component {
-  markerPosition() {
-    const {city: {openWeatherMapResponse: {coord: {lat, lon}}}} = this.props;
-    return {
-      lat, lng: lon
-    };
-  }
-
-  render() {
-    const {city, onClick} = this.props;
-    console.log(city);
-
-    const position = this.markerPosition();
-    return (
-      <Marker
-        position={position}
-        key={city._id}
-        onClick={() => onClick(city)}
-      />
-    );
-  }
-}
-
-CityMarker.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  city: PropTypes.object.isRequired
-};
+import {GoogleMap, withGoogleMap} from 'react-google-maps';
+import {Container} from 'semantic-ui-react';
+import CityCard from './CityCard';
+import CityMarker from './CityMarker';
 
 const Map = withGoogleMap(props => (
   <GoogleMap
@@ -44,42 +17,6 @@ const Map = withGoogleMap(props => (
   </GoogleMap>
 ));
 
-class CityCard extends React.Component {
-  currentTemp() {
-    return this.props.city.openWeatherMapResponse.main.temp;
-  }
-
-  render() {
-    const now = moment();
-
-    const {city: {city, provinceCode, lastTouched}, onCancel} = this.props;
-    const temp = this.currentTemp();
-    return (
-      <Card centered>
-        <Card.Content>
-          <Card.Header>
-            {`${city}, ${provinceCode}`}
-          </Card.Header>
-          <Card.Meta>
-            {`Last Update: ${moment(lastTouched).from(now)}`}
-          </Card.Meta>
-          <Card.Description>
-            {`Currently: ${temp}°F`}
-          </Card.Description>
-        </Card.Content>
-        <Button onClick={onCancel}>
-          Cancel
-        </Button>
-      </Card>
-    );
-  }
-}
-
-CityCard.propTypes = {
-  city: PropTypes.object.isRequired,
-  onCancel: PropTypes.func.isRequired
-};
-
 export default class ColdestCitiesMap extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +26,6 @@ export default class ColdestCitiesMap extends Component {
   }
 
   selectCity(city) {
-    console.log(city);
     this.setState({
       selectedCity: city
     });
@@ -97,7 +33,7 @@ export default class ColdestCitiesMap extends Component {
 
   renderMap() {
     return (
-      <div id="map" style={{height: '65%'}}>
+      <div id="map" style={{height: '55%'}}>
         <Map
           containerElement={
             <div style={{height: '100%'}} />
@@ -105,7 +41,6 @@ export default class ColdestCitiesMap extends Component {
           mapElement={
             <div style={{height: '100%'}} />
           }
-          onMapLoad={console.log}
           onMapClick={console.log}
           cities={this.props.cities}
           onMarkerClick={city => this.selectCity(city)}
@@ -130,11 +65,10 @@ export default class ColdestCitiesMap extends Component {
   }
 
   render() {
-    console.log('rendering');
     return (
       <div id="app">
         {this.renderMap()}
-        <Container className="center aligned" style={{height: '30%', paddingTop: 15}}>
+        <Container className="center aligned" style={{height: '40%', paddingTop: 15}}>
           <h1>Coldest cities in Canada right now</h1>
           {this.renderCurrentlySelectedCity()}
         </Container>
