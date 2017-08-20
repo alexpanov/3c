@@ -14,7 +14,7 @@ export default class CityCard extends React.Component {
     const {city: {city, provinceCode, lastTouched}, onCancel} = this.props;
     const temp = this.currentTemp();
     return (
-      <Card centered>
+      <Card centered style={{marginBottom: 10}}>
         <Card.Content>
           <Card.Header>
             {`${city}, ${provinceCode}`}
