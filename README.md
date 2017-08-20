@@ -3,10 +3,11 @@
 This app provides data about current coldest canadian cities.
 The app collects weather information for [350+ cities](https://github.com/alexpanov/3c/blob/master/server/seedCities/cities.json) as small as 3000 inhabitants.
 
-The data is available through a client facing frontend and the HTTP API at `$API_HOST/cities/coldest/current`.
-
 ## Live App
+### Browser App
 You can check out the app at http://coldest-canadian-cities.herokuapp.com.
+### API
+The data is also available through an HTTP API at [`$API_HOST/cities/coldest/current`](http://coldest-canadian-cities.herokuapp.com/cities/coldest/current).
 
 ## Data Sources
 ### Default
