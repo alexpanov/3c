@@ -1,0 +1,41 @@
+@import "{}/imports/client/config.styl"
+@import "{}/imports/client/mixins.styl"
+
+@font-face
+  font-family: 'DINNextLTPro-Bold'
+  src: url('/webfonts/3453FC_0_0.eot')
+  src: url('/webfonts/3453FC_0_0.eot?#iefix') format('embedded-opentype'), url('/webfonts/3453FC_0_0.woff2') format('woff2'), url('/webfonts/3453FC_0_0.woff') format('woff'), url('/webfonts/3453FC_0_0.ttf') format('truetype')
+
+@font-face
+  font-family: 'DINNextLTPro-Regular'
+  src: url('/webfonts/3453FC_1_0.eot')
+  src: url('/webfonts/3453FC_1_0.eot?#iefix') format('embedded-opentype'), url('/webfonts/3453FC_1_0.woff2') format('woff2'), url('/webfonts/3453FC_1_0.woff') format('woff'), url('/webfonts/3453FC_1_0.ttf') format('truetype')
+
+html, body
+  height: 100%
+
+//override semantic
+
+*
+  font-family: 'DINNextLTPro-Regular', sans-serif !important //override semantic
+  letter-spacing -.4px
+
+body
+  font-weight $regular
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+svg
+  display inline-block
+
+#root
+  position: relative
+  min-height: 100vh
+  height: 100%
+
+  +mobile()
+    min-height auto
+    height: 100%
+
+#app
+  height: 100%

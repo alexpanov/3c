@@ -1,0 +1,17 @@
+@import "{}/imports/client/config.styl"
+
+mobile()
+  @media only screen and (min-device-width: 320px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)
+    {block}
+
+web()
+  @media only screen and (min-device-width: 736px)
+    {block}
+
+mobile-hidden()
+  +mobile()
+    display none !important
+
+web-hidden()
+  +web()
+    display none !important

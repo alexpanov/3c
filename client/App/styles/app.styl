@@ -1,0 +1,39 @@
+@import "{}/imports/client/config.styl"
+@import "{}/imports/client/mixins.styl"
+
+*
+  box-sizing border-box
+  font-weight: normal
+  font-style: normal
+
+html, body
+  +mobile()
+    height: auto
+
+button
+  white-space nowrap
+
+.app
+  position: relative
+
+  &.authorized
+    .app-body
+      padding-top: 84px
+
+      +mobile()
+        padding: 84px 16px
+
+  .app-body
+    margin: 0 auto
+    width: 400px
+    padding: 24px
+    min-height 100vh
+
+    +mobile()
+      width: 100%
+      min-height auto
+      padding: 16px
+
+#MeteorToys_Toggle
+  +mobile()
+    display none
