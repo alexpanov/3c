@@ -1,5 +1,7 @@
 # 3C: Coldest Canadian Cities
 
+Yo guys!
+
 This app provides data about current coldest canadian cities.
 The app collects weather information for [350+ cities](https://github.com/alexpanov/3c/blob/master/server/seedCities/cities.json) as small as 3000 inhabitants.
 
